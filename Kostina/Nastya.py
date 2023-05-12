@@ -33,3 +33,12 @@ def main():
             plt.tight_layout()
             plt.get_current_fig_manager().window.state('zoomed')
             plt.show()
+
+    def select_file():
+        data = pd.read_excel('число въездных поездок в Россию.xlsx')
+        info_window = tk.Toplevel(root)
+        info_window.title("Информация из файла")
+        info_window.geometry("1000x500")
+        info_table = tk.Text(info_window, height=30, width=100)
+        info_table.insert(tk.END, data.to_string(index=False))
+        info_table.pack()
