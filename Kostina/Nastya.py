@@ -26,3 +26,10 @@ def main():
                 ax.text(value, j, str(value), fontsize=6, va='center')
             ax.tick_params(axis='both', labelsize=6)
             ax.legend([tourists.columns[i]], fontsize=8, loc='upper right')
+
+            # Убираем лишние оси
+            for i in range(tourists.shape[1], num_diagrams * 3):
+                axs[i].remove()
+            plt.tight_layout()
+            plt.get_current_fig_manager().window.state('zoomed')
+            plt.show()
